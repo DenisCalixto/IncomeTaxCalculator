@@ -1,8 +1,8 @@
-﻿using IncomeTaxCalculator.Models;
-using IncomeTaxCalculator.TaxRatesProviderContracts;
+﻿using IncomeTaxCalculator.TaxRatesRepository.Contracts;
 
 namespace IncomeTaxCalculator.Calculation
 {
+    /// <inheritdoc/>
     public class IncomeTaxCalculationStrategy : IIncomeTaxCalculationStrategy
     {
         private readonly ILogger<IncomeTaxCalculationStrategy> _logger;
@@ -14,6 +14,7 @@ namespace IncomeTaxCalculator.Calculation
             _taxRatesRepository = taxRatesRepository;
         }
 
+        /// <inheritdoc/>
         public IncomeTax? CalculateIncomeTax(double salary, int year)
         {
             double? taxRate = GetTaxRate(salary, year);
@@ -29,12 +30,12 @@ namespace IncomeTaxCalculator.Calculation
         }
 
         /// <summary>
-        /// 
+        /// Get the tax rate for given salary and year from a <see cref="ITaxRatesRepository"/>.
         /// </summary>
         /// <param name="salary">The salary.</param>
         /// <param name="year">The year.</param>
-        /// <returns></returns>
-        public double? GetTaxRate(double salary, int year)
+        /// <returns>The tax rate the salary lands on the given year or <c>null</c> if no rate was found.</returns>
+        private double? GetTaxRate(double salary, int year)
         {
             var taxRates = _taxRatesRepository.GetTaxRates();
             foreach (var taxRate in taxRates)
@@ -44,9 +45,8 @@ namespace IncomeTaxCalculator.Calculation
                     continue;
                 }
 
-                if ((taxRate.RangeStart is null && taxRate.RangeEnd <= salary) ||
-                    (taxRate.RangeEnd is null && taxRate.RangeStart > salary) ||
-                    (taxRate.RangeStart is not null && taxRate.RangeEnd is not null))
+                if ((taxRate.RangeEnd is null && taxRate.RangeStart > salary) ||
+                    (taxRate.RangeEnd is not null && taxRate.RangeStart <= salary && taxRate.RangeEnd > salary))
                 {
                     return taxRate.Rate;
                 }

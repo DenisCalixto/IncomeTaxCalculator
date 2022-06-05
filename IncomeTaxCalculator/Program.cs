@@ -1,5 +1,5 @@
 using IncomeTaxCalculator.Calculation;
-using IncomeTaxCalculator.TaxRatesProviderContracts;
+using IncomeTaxCalculator.TaxRatesRepository.Contracts;
 using IncomeTaxCalculator.TaxRatesRepositories.Mock;
 
 var builder = WebApplication.CreateBuilder(args);
