@@ -16,6 +16,6 @@
 
     public void CalculateTotalIncomeTax(double taxRate)
     {
-        totalIncomeTax = Salary * taxRate / 100;
+        totalIncomeTax = Math.Round((Salary * taxRate / 100), 2, MidpointRounding.ToEven);
     }
 }

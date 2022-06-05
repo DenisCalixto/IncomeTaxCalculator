@@ -47,7 +47,7 @@ namespace IncomeTaxCalculator.Calculation
                     continue;
                 }
 
-                if ((taxRate.RangeEnd is null && taxRate.RangeStart > salary) ||
+                if ((taxRate.RangeEnd is null && taxRate.RangeStart < salary) ||
                     (taxRate.RangeEnd is not null && taxRate.RangeStart <= salary && taxRate.RangeEnd > salary))
                 {
                     return taxRate.Rate;
