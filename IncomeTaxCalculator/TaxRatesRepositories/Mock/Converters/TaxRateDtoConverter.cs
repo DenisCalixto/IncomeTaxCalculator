@@ -1,12 +1,13 @@
-﻿using IncomeTaxCalculator.TaxRatesRepositoryContracts.DTOs;
+﻿using IncomeTaxCalculator.TaxRatesRepositories.Mock.DTOs;
+using IncomeTaxCalculator.TaxRatesRepositoryContracts.DTOs;
 
 namespace IncomeTaxCalculator.TaxRatesRepositories.Mock.Converters
 {
     public class TaxRateDtoConverter
     {
-        public static GenericTaxRateDto Convert(TaxRateDtoConverter taxRateDto)
+        public static GenericTaxRateDto Convert(TaxRateDto taxRate)
         {
-            return new GenericTaxRateDto();
+            return new GenericTaxRateDto { RangeStart = taxRate.Start, RangeEnd = taxRate.End, Year = taxRate.Year, Rate = taxRate.Rate };
         }
     }
 }
