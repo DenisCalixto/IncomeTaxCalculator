@@ -4,9 +4,9 @@ using Microsoft.Extensions.Logging;
 
 public class MockTaxRatesRepository : ITaxRatesRepository
 {
-    private readonly ILogger<MockTaxRatesRepository> _logger;
+    private readonly ILogger<ITaxRatesRepository> _logger;
 
-    public MockTaxRatesRepository(ILogger<MockTaxRatesRepository> logger)
+    public MockTaxRatesRepository(ILogger<ITaxRatesRepository> logger)
     {
         _logger = logger;
     }

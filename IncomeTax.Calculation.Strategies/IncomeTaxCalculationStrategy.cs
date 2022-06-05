@@ -7,10 +7,10 @@ namespace IncomeTaxCalculator.Calculation
     /// <inheritdoc/>
     public class IncomeTaxCalculationStrategy : IIncomeTaxCalculationStrategy
     {
-        private readonly ILogger<IncomeTaxCalculationStrategy> _logger;
+        private readonly ILogger<IIncomeTaxCalculationStrategy> _logger;
         private readonly ITaxRatesRepository _taxRatesRepository;
 
-        public IncomeTaxCalculationStrategy(ILogger<IncomeTaxCalculationStrategy> logger, ITaxRatesRepository taxRatesRepository)
+        public IncomeTaxCalculationStrategy(ILogger<IIncomeTaxCalculationStrategy> logger, ITaxRatesRepository taxRatesRepository)
         {
             _logger = logger;
             _taxRatesRepository = taxRatesRepository;

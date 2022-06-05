@@ -1,4 +1,5 @@
 using IncomeTaxCalculator.Calculation;
+using IncomeTaxCalculator.TaxRatesRepository.Contracts;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Xunit;
@@ -10,8 +11,8 @@ public class IncomeTaxCalculationStrategyTest
     [InlineData(2020, 200)]
     public void CalculateIncomeTax_YearInRange_FirstElementInYearRange(int year, double expectedValue)
     {
-        var calculatorLogger = new Mock<ILogger<IncomeTaxCalculationStrategy>>();
-        var repoLogger = new Mock<ILogger<MockTaxRatesRepository>>();
+        var calculatorLogger = new Mock<ILogger<IIncomeTaxCalculationStrategy>>();
+        var repoLogger = new Mock<ILogger<ITaxRatesRepository>>();
         var taxRatesRepo = new MockTaxRatesRepository(repoLogger.Object);
         var calculator = new IncomeTaxCalculationStrategy(calculatorLogger.Object, taxRatesRepo);
 
@@ -25,8 +26,8 @@ public class IncomeTaxCalculationStrategyTest
     [InlineData(2020, 111000)]
     public void CalculateIncomeTax_YearInRange_LastElementInYearRange(int year, double expectedValue)
     {
-        var calculatorLogger = new Mock<ILogger<IncomeTaxCalculationStrategy>>();
-        var repoLogger = new Mock<ILogger<MockTaxRatesRepository>>();
+        var calculatorLogger = new Mock<ILogger<IIncomeTaxCalculationStrategy>>();
+        var repoLogger = new Mock<ILogger<ITaxRatesRepository>>();
         var taxRatesRepo = new MockTaxRatesRepository(repoLogger.Object);
         var calculator = new IncomeTaxCalculationStrategy(calculatorLogger.Object, taxRatesRepo);
 
@@ -38,8 +39,8 @@ public class IncomeTaxCalculationStrategyTest
     [Fact]
     public void CalculateIncomeTax_NoYearInRange()
     {
-        var calculatorLogger = new Mock<ILogger<IncomeTaxCalculationStrategy>>();
-        var repoLogger = new Mock<ILogger<MockTaxRatesRepository>>();
+        var calculatorLogger = new Mock<ILogger<IIncomeTaxCalculationStrategy>>();
+        var repoLogger = new Mock<ILogger<ITaxRatesRepository>>();
         var taxRatesRepo = new MockTaxRatesRepository(repoLogger.Object);
         var calculator = new IncomeTaxCalculationStrategy(calculatorLogger.Object, taxRatesRepo);
 

@@ -26,7 +26,7 @@ namespace IncomeTaxCalculator.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(double))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public IActionResult Calculate(double salary, int year)
+        public async Task<IActionResult> Calculate(double salary, int year)
         {
             if (Double.IsNaN(salary) || Single.IsNaN(year))
             {
@@ -34,7 +34,10 @@ namespace IncomeTaxCalculator.Controllers
             }
             try
             {
-                var calculatedTax = _incomeTaxCalculationStrategy.CalculateIncomeTax(salary, year);
+                var calculationTask = new Task<IncomeTax?>(() => _incomeTaxCalculationStrategy.CalculateIncomeTax(salary, year));
+                calculationTask.Start();
+                var calculatedTax = await calculationTask;
+
                 if (calculatedTax?.TotalIncomeTax is null)
                 {
                     return NotFound();
