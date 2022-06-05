@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTax.Calculation.Contr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTax.ObjectModel", "IncomeTax.ObjectModel\IncomeTax.ObjectModel.csproj", "{A62AA9EA-C6A5-42CD-852F-FA3381A90904}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTax.Calculation.Strategies", "IncomeTax.Calculation.Strategies\IncomeTax.Calculation.Strategies.csproj", "{1DBB0F1E-A25C-4016-8BAA-29BA87B6B1EA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{A62AA9EA-C6A5-42CD-852F-FA3381A90904}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A62AA9EA-C6A5-42CD-852F-FA3381A90904}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A62AA9EA-C6A5-42CD-852F-FA3381A90904}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1DBB0F1E-A25C-4016-8BAA-29BA87B6B1EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DBB0F1E-A25C-4016-8BAA-29BA87B6B1EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DBB0F1E-A25C-4016-8BAA-29BA87B6B1EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DBB0F1E-A25C-4016-8BAA-29BA87B6B1EA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

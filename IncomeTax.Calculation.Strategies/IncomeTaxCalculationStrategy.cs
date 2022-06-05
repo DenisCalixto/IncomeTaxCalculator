@@ -1,4 +1,6 @@
-﻿using IncomeTaxCalculator.TaxRatesRepository.Contracts;
+﻿
+using IncomeTaxCalculator.TaxRatesRepository.Contracts;
+using Microsoft.Extensions.Logging;
 
 namespace IncomeTaxCalculator.Calculation
 {
