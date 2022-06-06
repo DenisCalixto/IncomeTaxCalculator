@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 using System.Net.Http.Headers;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json.Nodes;
+using System.Collections.Concurrent;
 
 namespace IncomeTaxCalculator.TaxRates.Repositories.InterviewServer
 {
@@ -25,7 +26,7 @@ namespace IncomeTaxCalculator.TaxRates.Repositories.InterviewServer
             Configuration = configuration;
             if (TaxBracketsLookup is null)
             {
-                TaxBracketsLookup = new Dictionary<int, GenericTaxBracketDto[]>(0);
+                TaxBracketsLookup = new ConcurrentDictionary<int, GenericTaxBracketDto[]>();
             }
         }
 
