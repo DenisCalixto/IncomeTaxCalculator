@@ -11,7 +11,7 @@ public class MockTaxRatesRepository : ITaxRatesRepository
         _logger = logger;
     }
 
-    public IEnumerable<GenericTaxRateDto> GetTaxRates()
+    public IEnumerable<GenericTaxRateDto> GetTaxRates(int year)
     {
         var range1_1 = CreateExternalTaxRateDto(2019, 0, 49020, 15);
         var range1_2 = CreateExternalTaxRateDto(2019, 49020, 211511, 29);
@@ -27,7 +27,7 @@ public class MockTaxRatesRepository : ITaxRatesRepository
                 range2_1,
                 range2_2,
                 range2_3,
-            };
+            }.Where(taxRate => taxRate.Year ==  year);
 
         static GenericTaxRateDto CreateExternalTaxRateDto(int year, double start, double? end, double rate)
         {

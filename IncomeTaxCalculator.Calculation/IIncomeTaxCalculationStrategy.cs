@@ -1,4 +1,6 @@
-﻿namespace IncomeTaxCalculator.Calculation
+﻿using IncomeTaxCalculator.ObjectModel;
+
+namespace IncomeTaxCalculator.Calculation
 {
     /// <summary>
     /// Strategy for calculating an income tax.

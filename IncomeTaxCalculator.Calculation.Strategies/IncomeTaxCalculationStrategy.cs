@@ -1,4 +1,5 @@
 ﻿
+using IncomeTaxCalculator.ObjectModel;
 using IncomeTaxCalculator.TaxRatesRepository.Contracts;
 using Microsoft.Extensions.Logging;
 
@@ -39,14 +40,9 @@ namespace IncomeTaxCalculator.Calculation
         /// <returns>The tax rate the salary lands on the given year or <c>null</c> if no rate was found.</returns>
         private double? GetTaxRate(double salary, int year)
         {
-            var taxRates = _taxRatesRepository.GetTaxRates();
+            var taxRates = _taxRatesRepository.GetTaxRates(year);
             foreach (var taxRate in taxRates)
             {
-                if (taxRate.Year != year)
-                {
-                    continue;
-                }
-
                 if ((taxRate.RangeEnd is null && taxRate.RangeStart < salary) ||
                     (taxRate.RangeEnd is not null && taxRate.RangeStart <= salary && taxRate.RangeEnd > salary))
                 {

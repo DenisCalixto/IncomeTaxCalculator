@@ -5,15 +5,17 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncomeTaxCalculator", "IncomeTaxCalculator\IncomeTaxCalculator.csproj", "{DE1D8621-8A30-4552-A2F9-F2D9A9AFE0DA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTax.TaxRepository.Contracts", "IncomeTax.TaxRepository.Contracts\IncomeTax.TaxRepository.Contracts.csproj", "{19053301-E407-4BA6-A0B8-14085DB9FE9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncomeTaxCalculator.TaxRatesRepository.Contracts", "IncomeTaxCalculator.TaxRepository.Contracts\IncomeTaxCalculator.TaxRatesRepository.Contracts.csproj", "{19053301-E407-4BA6-A0B8-14085DB9FE9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTax.Calculation.Contracts", "IncomeTax.Calculation\IncomeTax.Calculation.Contracts.csproj", "{5B3B19DC-8411-42E3-B535-FE3EAFD6E9B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncomeTaxCalculator.Calculation.Contracts", "IncomeTaxCalculator.Calculation\IncomeTaxCalculator.Calculation.Contracts.csproj", "{5B3B19DC-8411-42E3-B535-FE3EAFD6E9B4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTax.ObjectModel", "IncomeTax.ObjectModel\IncomeTax.ObjectModel.csproj", "{A62AA9EA-C6A5-42CD-852F-FA3381A90904}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncomeTaxCalculator.ObjectModel", "IncomeTaxCalculator.ObjectModel\IncomeTaxCalculator.ObjectModel.csproj", "{A62AA9EA-C6A5-42CD-852F-FA3381A90904}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTax.Calculation.Strategies", "IncomeTax.Calculation.Strategies\IncomeTax.Calculation.Strategies.csproj", "{1DBB0F1E-A25C-4016-8BAA-29BA87B6B1EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncomeTaxCalculator.Calculation.Strategies", "IncomeTaxCalculator.Calculation.Strategies\IncomeTaxCalculator.Calculation.Strategies.csproj", "{1DBB0F1E-A25C-4016-8BAA-29BA87B6B1EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IncomeTax.Calculation.Strategies.Test", "IncomeTax.Calculation.Strategies.Test\IncomeTax.Calculation.Strategies.Test.csproj", "{1912B9FA-C240-4931-9DBA-F38767E88415}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncomeTaxCalculator.Calculation.Strategies.Test", "IncomeTaxCalculator.Calculation.Strategies.Test\IncomeTaxCalculator.Calculation.Strategies.Test.csproj", "{1912B9FA-C240-4931-9DBA-F38767E88415}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IncomeTaxCalculator.TaxRatesRepositories", "IncomeTaxCalculator.TaxRates.Repositories\IncomeTaxCalculator.TaxRatesRepositories.csproj", "{AD50E688-B86E-4DF4-8873-E6111C72EEE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{1912B9FA-C240-4931-9DBA-F38767E88415}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1912B9FA-C240-4931-9DBA-F38767E88415}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1912B9FA-C240-4931-9DBA-F38767E88415}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD50E688-B86E-4DF4-8873-E6111C72EEE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD50E688-B86E-4DF4-8873-E6111C72EEE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD50E688-B86E-4DF4-8873-E6111C72EEE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD50E688-B86E-4DF4-8873-E6111C72EEE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,7 @@
 ﻿using IncomeTaxCalculator.Calculation;
+using IncomeTaxCalculator.DTOs;
 using IncomeTaxCalculator.TaxRatesRepository.Contracts;
+using IncomeTaxCalculator.ObjectModel;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -26,15 +28,15 @@ namespace IncomeTaxCalculator.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(double))]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<IActionResult> Calculate(double salary, int year)
+        public async Task<IActionResult> Calculate([FromBody] IncomeTaxDto incomeTaxDto)
         {
-            if (Double.IsNaN(salary) || Single.IsNaN(year))
+            if (Double.IsNaN(incomeTaxDto.Salary) || Single.IsNaN(incomeTaxDto.Year))
             {
                 return BadRequest();
             }
             try
             {
-                var calculationTask = new Task<IncomeTax?>(() => _incomeTaxCalculationStrategy.CalculateIncomeTax(salary, year));
+                var calculationTask = new Task<IncomeTax?>(() => _incomeTaxCalculationStrategy.CalculateIncomeTax(incomeTaxDto.Salary, incomeTaxDto.Year));
                 calculationTask.Start();
                 var calculatedTax = await calculationTask;
 

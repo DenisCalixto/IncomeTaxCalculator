@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -23,10 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IncomeTax.Calculation.Strategies\IncomeTax.Calculation.Strategies.csproj" />
-    <ProjectReference Include="..\IncomeTax.Calculation\IncomeTax.Calculation.Contracts.csproj" />
-    <ProjectReference Include="..\IncomeTax.ObjectModel\IncomeTax.ObjectModel.csproj" />
-    <ProjectReference Include="..\IncomeTax.TaxRepository.Contracts\IncomeTax.TaxRepository.Contracts.csproj" />
+    <ProjectReference Include="..\IncomeTaxCalculator.Calculation.Strategies\IncomeTaxCalculator.Calculation.Strategies.csproj" />
+    <ProjectReference Include="..\IncomeTaxCalculator.Calculation\IncomeTaxCalculator.Calculation.Contracts.csproj" />
+    <ProjectReference Include="..\IncomeTaxCalculator.ObjectModel\IncomeTaxCalculator.ObjectModel.csproj" />
+    <ProjectReference Include="..\IncomeTaxCalculator.TaxRates.Repositories\IncomeTaxCalculator.TaxRatesRepositories.csproj" />
+    <ProjectReference Include="..\IncomeTaxCalculator.TaxRepository.Contracts\IncomeTaxCalculator.TaxRatesRepository.Contracts.csproj" />
   </ItemGroup>
 
 </Project>

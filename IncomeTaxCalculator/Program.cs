@@ -1,6 +1,6 @@
-using IncomeTaxCalculator.Calculation;
 using IncomeTaxCalculator.TaxRatesRepository.Contracts;
-using IncomeTaxCalculator.TaxRatesRepositories.Mock;
+using IncomeTaxCalculator.Calculation;
+using IncomeTaxCalculator.TaxRates.Repositories.InterviewServer;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Logging.ClearProviders();
@@ -10,7 +10,7 @@ builder.Logging.AddConsole();
 
 builder.Services.AddControllers();
 builder.Services.AddScoped<IIncomeTaxCalculationStrategy, IncomeTaxCalculationStrategy>();
-builder.Services.AddScoped<ITaxRatesRepository, MockTaxRatesRepository>();
+builder.Services.AddScoped<ITaxRatesRepository, InterviewServerTaxRatesRepository>();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
