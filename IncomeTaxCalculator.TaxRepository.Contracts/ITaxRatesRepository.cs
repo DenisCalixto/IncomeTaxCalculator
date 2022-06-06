@@ -4,6 +4,6 @@ namespace IncomeTaxCalculator.TaxRatesRepository.Contracts
 {
     public interface ITaxRatesRepository
     {
-        public IEnumerable<GenericTaxRateDto> GetTaxRates(int year);
+        public IEnumerable<GenericTaxBracketDto> GetTaxRates(int year);
     }
 }

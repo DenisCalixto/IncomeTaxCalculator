@@ -2,10 +2,10 @@
 {
     public struct TaxBracketsDto
     {        
-        public TaxRateDto[] Tax_Brackets { get; set; }
+        public TaxBracketDto[] Tax_Brackets { get; set; }
     }
 
-    public struct TaxRateDto
+    public struct TaxBracketDto
     {
         public double? Max { get; set; }
 

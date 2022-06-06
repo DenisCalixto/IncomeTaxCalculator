@@ -17,7 +17,7 @@ namespace IncomeTaxCalculator.TaxRates.Repositories.InterviewServer
         /// <summary>
         /// Memcache of tax brackets.
         /// </summary>
-        static IDictionary<int, GenericTaxRateDto[]> TaxBracketsLookup;
+        static IDictionary<int, GenericTaxBracketDto[]> TaxBracketsLookup;
 
         public InterviewServerTaxRatesRepository(ILogger<ITaxRatesRepository> logger, IConfiguration configuration)
         {
@@ -25,19 +25,19 @@ namespace IncomeTaxCalculator.TaxRates.Repositories.InterviewServer
             Configuration = configuration;
             if (TaxBracketsLookup is null)
             {
-                TaxBracketsLookup = new Dictionary<int, GenericTaxRateDto[]>(0);
+                TaxBracketsLookup = new Dictionary<int, GenericTaxBracketDto[]>(0);
             }
         }
 
-        public IEnumerable<GenericTaxRateDto> GetTaxRates(int year)
+        public IEnumerable<GenericTaxBracketDto> GetTaxRates(int year)
         {
             try
             {
                 if (!TaxBracketsLookup.ContainsKey(year))
                 {
                     var taxRates = GetTaxRatesFromProvider(year);
-                    var genericTaxRates = taxRates.Select(taxRate => TaxRateDtoConverter.Convert(taxRate));
-                    TaxBracketsLookup.Add(year, genericTaxRates.ToArray<GenericTaxRateDto>());
+                    var genericTaxRates = taxRates.Select(taxRate => TaxBracketDtoConverter.Convert(taxRate));
+                    TaxBracketsLookup.Add(year, genericTaxRates.ToArray<GenericTaxBracketDto>());
                 }
                 return TaxBracketsLookup[year];
             }
@@ -47,7 +47,7 @@ namespace IncomeTaxCalculator.TaxRates.Repositories.InterviewServer
             }
         }
 
-        private TaxRateDto[] GetTaxRatesFromProvider(int year)
+        private TaxBracketDto[] GetTaxRatesFromProvider(int year)
         {
             HttpClient client = new HttpClient();
             try
@@ -60,7 +60,7 @@ namespace IncomeTaxCalculator.TaxRates.Repositories.InterviewServer
                 if (response.IsSuccessStatusCode)
                 {
                     var taxBracketsDto = response.Content.ReadAsAsync<TaxBracketsDto>()?.Result;
-                    return taxBracketsDto is not null ? taxBracketsDto.Value.Tax_Brackets : Array.Empty<TaxRateDto>();
+                    return taxBracketsDto is not null ? taxBracketsDto.Value.Tax_Brackets : Array.Empty<TaxBracketDto>();
                 }
 
                 if (response.StatusCode >=  System.Net.HttpStatusCode.InternalServerError)
@@ -69,7 +69,7 @@ namespace IncomeTaxCalculator.TaxRates.Repositories.InterviewServer
                 }
                 else if (response.StatusCode == System.Net.HttpStatusCode.NotFound)
                 {
-                    return Array.Empty<TaxRateDto>();
+                    return Array.Empty<TaxBracketDto>();
                 }
                 else
                 {
@@ -91,7 +91,7 @@ namespace IncomeTaxCalculator.TaxRates.Repositories.InterviewServer
                 client.Dispose();
             }
 
-            return Array.Empty<TaxRateDto>();
+            return Array.Empty<TaxBracketDto>();
         }
     }
 }

@@ -11,7 +11,7 @@ public class MockTaxRatesRepository : ITaxRatesRepository
         _logger = logger;
     }
 
-    public IEnumerable<GenericTaxRateDto> GetTaxRates(int year)
+    public IEnumerable<GenericTaxBracketDto> GetTaxRates(int year)
     {
         var range1_1 = CreateExternalTaxRateDto(2019, 0, 49020, 15);
         var range1_2 = CreateExternalTaxRateDto(2019, 49020, 211511, 29);
@@ -20,7 +20,7 @@ public class MockTaxRatesRepository : ITaxRatesRepository
         var range2_2 = CreateExternalTaxRateDto(2020, 49021, 211515, 34);
         var range2_3 = CreateExternalTaxRateDto(2020, 211511, null, 37);
 
-        return new GenericTaxRateDto[] {
+        return new GenericTaxBracketDto[] {
                 range1_1,
                 range1_2,
                 range1_3,
@@ -29,9 +29,9 @@ public class MockTaxRatesRepository : ITaxRatesRepository
                 range2_3,
             }.Where(taxRate => taxRate.Year ==  year);
 
-        static GenericTaxRateDto CreateExternalTaxRateDto(int year, double start, double? end, double rate)
+        static GenericTaxBracketDto CreateExternalTaxRateDto(int year, double start, double? end, double rate)
         {
-            var obj = new GenericTaxRateDto();
+            var obj = new GenericTaxBracketDto();
             obj.Year = year;
             obj.RangeStart = start;
             obj.RangeEnd = end;

@@ -3,11 +3,11 @@ using IncomeTaxCalculator.TaxRatesRepository.Contracts.DTOs;
 
 namespace IncomeTaxCalculator.TaxRatesRepositories.InterviewServer.Converters
 {
-    public class TaxRateDtoConverter
+    public class TaxBracketDtoConverter
     {
-        public static GenericTaxRateDto Convert(TaxRateDto taxRate)
+        public static GenericTaxBracketDto Convert(TaxBracketDto taxRate)
         {
-            return new GenericTaxRateDto() { RangeStart = taxRate.Min, RangeEnd = taxRate.Max, Rate = taxRate.Rate };
+            return new GenericTaxBracketDto() { RangeStart = taxRate.Min, RangeEnd = taxRate.Max, Rate = taxRate.Rate };
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace IncomeTaxCalculator.TaxRatesRepository.Contracts.DTOs
 {
-    public struct GenericTaxRateDto
+    public struct GenericTaxBracketDto
     {
         public int Year { get; set; }
 
